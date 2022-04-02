@@ -1,4 +1,5 @@
   <template>
+    <!-- ll -->
     <div @click="closeMenu" style="background: rgba(0, 0, 0, .7);" 
     class="overlay fixed z-50 inset-0">
     <div class="w-10/12 p-5 bg-gray-50 h-full dark:bg-gray-900">
@@ -10,7 +11,6 @@
          <input id="search" type="text" v-model="searchTerm" @keydown.enter="doSearch"
          class="w-10/12 md:hidden rounded-md focus:bg-gray-100 border sm:border-r-0 border-gray-300 focus:outline-none h-12 flex-grow px-4 text-gray-900 dark:bg-gray-200" 
          placeholder="Enter Search Term">
-
          <button 
          v-for="category in getCategories" 
          :key="category.id" 
