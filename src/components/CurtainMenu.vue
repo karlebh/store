@@ -15,8 +15,8 @@
          v-for="category in getCategories" 
          :key="category.id" 
          @click="getProducts(category)"
-         class="block text-xl mt-5 font-semibold text-gray-800 dark:text-gray-200"
-         :class="{'text-red-500': category == categoryName}"
+         class="block text-xl mt-5 font-semibold"
+         :class="{'text-red-500': category == categoryName, 'text-gray-800 dark:text-gray-200': category != categoryName}"
          >
          {{ category }}
        </button>
