@@ -3,7 +3,7 @@
   <div class="flex justify-center">
     <div class="hidden md:flex w-6/12 mb-3 mt-0 items-center justify-center font-medium relative">
 
-      <input id="search" type="text" v-model="searchTerm" @keydown.enter="doSearch"
+      <input autocomplete="off" id="search" type="text" v-model="searchTerm" @keydown.enter="doSearch"
       class="sm:rounded-l-md focus:bg-gray-100 border sm:border-r-0 border-gray-300 focus:outline-none h-12 flex-grow px-4 text-gray-900 dark:bg-gray-200" 
       placeholder="Enter Search Term">
 
