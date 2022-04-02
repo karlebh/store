@@ -15,7 +15,7 @@
     <div class="py-10 px-4 md:max-w-md">
       <p style="color: hsl(26, 100%, 70%);" class="text-xs uppercase font-bold tracking-wider">{{ product.category }} category</p>
 
-      <h1 class="text-4xl font-bold my-5">{{ product.name }}</h1>
+      <h1 class="text-4xl font-bold my-5 text-gray-900 dark:text-gray-200">{{ product.name }}</h1>
 
       <p class="text-gray-400 mb-5 font-md">
         {{ product.description }}
@@ -23,8 +23,8 @@
 
       <div class="flex justify-between items-center md:block">
         <div class="flex items-center">
-          <span class="font-semibold text-2xl mr-4">
-            ${{ product.price }}
+          <span class="font-semibold text-2xl mr-4 text-gray-900 dark:text-gray-200">
+            {{ Money(product.price) }}
           </span>
 
           <span style="background: hsl(26, 100%, 94%); color: hsl(26, 100%, 55%)" class="text-semibold px-1 rounded-md">
@@ -45,11 +45,11 @@
   </div>
   <br>
   <Page v-if="searchResults.length > perPage" :searchResults="searchResults"/>
-  <br>
+    <br>
 
 
-  <div id="alert" class="hidden rounded-md bg-green-500 text-white text-lg px-10 py-5 fixed z-50 right-3 top-3">Item Added Successfully!</div>
-</div>
+    <div id="alert" class="hidden rounded-md bg-green-500 text-white text-lg px-10 py-5 fixed z-50 right-3 top-3">Item Added Successfully!</div>
+  </div>
 </template>
 
 <script>
@@ -67,17 +67,26 @@
       Page
     },
 
-    computed: {
-      ...mapState([
-        'searchResults', 
-        'searchTerm',
-        'perPage',
-        'currentPage'
-        ]),
-      pageProducts() {
-        let index = (this.currentPage - 1) * this.perPage;
-        return this.searchResults.slice(index, index + this.perPage);
-      },
+    methods: {
+     Money(price) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(price)
     },
-  }
+  },
+
+  computed: {
+    ...mapState([
+      'searchResults', 
+      'searchTerm',
+      'perPage',
+      'currentPage'
+      ]),
+    pageProducts() {
+      let index = (this.currentPage - 1) * this.perPage;
+      return this.searchResults.slice(index, index + this.perPage);
+    },
+  },
+}
 </script>
