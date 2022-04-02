@@ -44,7 +44,7 @@
 
   </div>
   <br>
-  <Page v-if="searchResults" :searchResults="searchResults"/>
+  <Page v-if="searchResults.length > perPage" :searchResults="searchResults"/>
   <br>
 
 
