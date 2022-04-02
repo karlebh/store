@@ -9,7 +9,7 @@
     <div class="py-10 px-4 md:max-w-md">
       <p style="color: hsl(26, 100%, 70%);" class="text-xs uppercase font-bold tracking-wider">{{ product.category }} category</p>
 
-      <h1 class="text-4xl font-bold my-5">{{ product.name }}</h1>
+      <h1 class="text-4xl font-bold my-5 text-gray-900 dark:text-gray-200">{{ product.name }}</h1>
 
       <p class="text-gray-400 mb-5 font-md">
         {{ product.description }}
@@ -17,7 +17,7 @@
 
       <div class="flex justify-between items-center md:block">
         <div class="flex items-center">
-          <span class="font-semibold text-2xl mr-4">
+          <span class="font-semibold text-2xl mr-4 text-gray-900 dark:text-gray-200">
             {{ Money(product.price * product.discount) }}
           </span>
 

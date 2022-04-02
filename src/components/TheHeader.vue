@@ -25,14 +25,14 @@
 
       <Cart class="" :class="{'mr-3 lg:mr-2': authenticated}" @close-cart="toggleCart"/>
 
-      <button class="mr-5 hidden md:block mb-3" @click="toggleSearchBox">
+      <button class="dark:text-gray-100 mr-5 hidden md:block mb-3" @click="toggleSearchBox">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       </button>
 
       <div>
-        <router-link v-show="! authenticated" to="/login" class="mr-3 sm:mr-5 mb-3">login</router-link>
+        <router-link v-show="! authenticated" to="/login" class="dark:text-gray-100 text-gray-500 mr-3 sm:mr-5 mb-3">login</router-link>
       </div>
 
       <div class="mr-1 relative" v-if="authenticated">
