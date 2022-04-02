@@ -1,5 +1,5 @@
 {
-  "name": "abc",
+  "name": "store",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,21 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@ocrv/vue-tailwind-pagination": "^0.0.4",
+    "@splidejs/splide": "^3.6.12",
+    "@vuelidate/core": "^2.0.0-alpha.38",
+    "@vuelidate/validators": "^2.0.0-alpha.28",
+    "autoprefixer": "^9.8.8",
+    "axios": "^0.26.1",
     "core-js": "^3.6.5",
+    "gsap": "^3.9.1",
+    "infinite-scroll": "^4.0.1",
+    "jw-vue-pagination": "^1.0.3",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vuelidate": "^0.7.7",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

@@ -1,18 +1,43 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="max-w-6xl m-auto">
+
+    <div class="" v-if="!loading">
+      <Carousel/>
+
+      <ProductList class="pb-5"/>  
+    </div>
+
+    <br>
+    <br>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  // import gsap from 'gsap'
+  import { mapState } from 'vuex'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  import Carousel from '@/components/Carousel'
+  import ProductList from '@/components/ProductList'
+
+  export default {
+
+    computed: {
+      ...mapState(['loading', 'products']),
+    },
+
+    components: {
+      ProductList,
+      Carousel,
+    },
+
+    data() {
+      return {
+        data: [],
+        pageOfItems: []
+      }
+    },
   }
-}
+
+  
 </script>
