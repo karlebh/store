@@ -23,9 +23,6 @@
       component: Checkout
     },  
    {path: '/admin', component: Admin, 
-    beforeEach(to, from, next) {
-      auth ? next() : next('/login')
-    },
     children: [
     {path: 'products', component: Product},
     // {path: 'orders', component: Orders},
@@ -71,6 +68,14 @@
   const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
+  })
+
+  router.beforeEach((to, from, next) => {
+    if ((to.path === '/admin/products' || to.path === '/admin') && !auth) {
+      next('/login')
+    } else {
+      next()
+    }
   })
 
   export default router

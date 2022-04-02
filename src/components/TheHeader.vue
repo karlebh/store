@@ -18,7 +18,7 @@
 
     <div class="flex">
       <div class="text-orange font-semibold hidden md:block mr-5">
-        ${{ totalPrice }} 
+        {{ Money(totalPrice) }} 
       </div>
 
       <DarkMode class="mr-3 sm:mr-5 hidden md:block"/>
@@ -100,18 +100,29 @@
         'cartOpen', 
         'searchBoxOpen',
         'accountInfoOpen'
-        ])
+        ]),
     },
 
 
     methods: {
+      Money(price) {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(price)
+      },
       ...mapMutations([
+        'clearAuthenticated',
         'toggleSearchBox',
         'toggleMenu',
         'toggleCart',
         'toggleAccount',
         'setAccount'
         ]),
+      handleLogout() {
+        this.clearAuthenticated()
+        this.$router.push('/')
+      },
     },
 
     components: {

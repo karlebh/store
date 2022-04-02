@@ -113,14 +113,25 @@ export default createStore({
   },
   actions: {
     async getProducts({ commit, state }) {
-      state.loading = true
-      await fetch(`${URL}/store.json`)
-      .then(response => response.json())
-      .then(data => {
-        commit('loadProducts', data.products)
-        commit('loadCategories', data.categories)
-        state.loading = false
-      })
+      const items = localStorage.getItem('items')
+
+      if (items) {
+        let theItems = JSON.parse(items)
+        commit('loadProducts', theItems.products)
+        commit('loadCategories', theItems.categories)
+      } else {
+        state.loading = true
+        await fetch(`${URL}/store.json`)
+        .then(response => response.json())
+        .then(data => {
+          localStorage.setItem('items', JSON.stringify(data))
+          commit('loadProducts', data.products)
+          commit('loadCategories', data.categories)
+          state.loading = false
+        })
+        
+      }
+
     },
   },
   modules: {

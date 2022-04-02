@@ -18,7 +18,7 @@
       <div class="flex justify-between items-center md:block">
         <div class="flex items-center">
           <span class="font-semibold text-2xl mr-4">
-            ${{ (product.price * product.discount).toFixed(2) }}
+            {{ Money(product.price * product.discount) }}
           </span>
 
           <span style="background: hsl(26, 100%, 94%); color: hsl(26, 100%, 55%)" class="text-semibold px-1 rounded-md">
@@ -68,6 +68,15 @@
         'currentPage',
         ]),
       ...mapGetters({products: 'pageProducts'})
+    },
+
+    methods: {
+       Money(price) {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(price)
+      },
     },
 
     components: {
