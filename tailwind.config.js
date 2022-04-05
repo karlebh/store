@@ -15,6 +15,10 @@ module.exports = {
       fontFamily: {
         new: ['Poppins', 'Fraunces', 'Nunito'],
       },
+      width: {
+        'cart': '90vw',
+        '128': '32rem'
+      }
     },
   },
   plugins: [],

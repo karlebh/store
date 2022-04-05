@@ -7,75 +7,64 @@
     import Login from '@/views/Login'
     import Search from '@/views/Search'
     import Checkout from '@/views/Checkout'
-    import Admin from '@/views/Admin'
 
     import Product from '@/components/Admin/Product'
     import Thanks from '@/components/Thanks'
-    // import Orders from '@/components/Admin/Orders'
-
-
-    const auth = localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : false
 
     const routes = [
     {
       path: '/checkout',
       name: 'Checkout',
-      component: Checkout
+      component: Checkout,    
     },  
-   {path: '/admin', component: Admin, 
-    children: [
-    {path: 'products', component: Product},
-    // {path: 'orders', component: Orders},
-    {path: '', component: Product},
-    ],
-  },
-  
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-    beforeEnter(to, from, next) {
-      ! auth ? next() : next('/admin/products')
-    }
-  },  
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },  
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
-  },
-  {
-    path: '/thanks',
-    name: 'Thanks',
-    component: Thanks,
-  },
-  {
-    path: '/search',
-    name: 'Search',
-    component: Search,
-     beforeEnter(to, from, next) {
-      store.state.searchResults.length > 0 ? next() : next('/')
-      next('/')
-    }
-  },
-  {path: '/:catchAll(.*)', redirect: '/'},
-  ]
+    {
+      path: '/admin/products', 
+      component: Product,
+      meta: {requiresAuth: true},
+      beforeEnter(to, from, next) {
+        JSON.parse(localStorage.getItem('auth')) && next()
+        next('/login')
+      },  
+    },
 
-  const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes
-  })
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      beforeEnter(to, from, next) {
+        JSON.parse(localStorage.getItem('auth')) && next('/admin/products')
+        next()
+      } 
+    },  
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,    
+    },  
+    {
+      path: '/about',
+      name: 'About',
+      component: About,    
+    },
+    {
+      path: '/thanks',
+      name: 'Thanks',
+      component: Thanks,    
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search,
+      beforeEnter(to, from, next) {
+        store.state.searchResults.length > 0 ? next() : next('/')
+      }
+    },
+    {path: '/:catchAll(.*)', redirect: '/'},
+    ]
 
-  router.beforeEach((to, from, next) => {
-    if ((to.path === '/admin/products' || to.path === '/admin') && !auth) {
-      next('/login')
-    } else {
-      next()
-    }
-  })
+    const router = createRouter({
+      history: createWebHistory(process.env.BASE_URL),
+      routes
+    })
 
-  export default router
+    export default router

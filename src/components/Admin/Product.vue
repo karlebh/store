@@ -1,5 +1,7 @@
 
 <template>
+  <br>
+  <br>
 	<div class="mx-2">
 
 		<div class="flex items-center justify-center">

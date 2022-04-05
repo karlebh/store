@@ -1,43 +1,43 @@
 <template>
-  <div class="mt-10">
+  <div class="mt-16">
     <div class="flex flex-col items-center w-full">
 
-      <div class="hello flex flex-col w-10/12 md:w-7/12">
+      <div class="hello flex flex-col w-10/12 md:w-7/12 text-gray-800 dark:text-gray-100">
         <label class="text-md pb-1">Name</label>
-        <input type="text" v-model="v$.order.name.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
+        <input autocomplete="off" type="text" v-model="v$.order.name.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
         
         <div class="text-sm text-red-500" v-for="(error, index) of v$.order.name.$errors" :key="index">
           <div class="error-msg">{{ error.$message }}</div>
         </div>
       </div>
 
-      <div class="mb-2 flex flex-col w-10/12 md:w-7/12">
+      <div class="mb-2 flex flex-col w-10/12 md:w-7/12 text-gray-800 dark:text-gray-100">
         <label class="text-md pb-1">Email</label>
-        <input type="email" v-model="v$.order.email.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
+        <input autocomplete="off" type="email" v-model="v$.order.email.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
         <div class="text-sm text-red-500" v-for="(error, index) of v$.order.email.$errors" :key="index">
           <div class="error-msg">{{ error.$message }}</div>
         </div>
       </div>
 
-      <div class="mb-2 flex flex-col w-10/12 md:w-7/12">
+      <div class="mb-2 flex flex-col w-10/12 md:w-7/12 text-gray-800 dark:text-gray-100">
         <label class="text-md pb-1">Address</label>
-        <input type="text" v-model="v$.order.address.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
+        <input autocomplete="off" type="text" v-model="v$.order.address.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
         <div class="text-sm text-red-500" v-for="(error, index) of v$.order.address.$errors" :key="index">
           <div class="error-msg">{{ error.$message }}</div>
         </div>
       </div>
 
-      <div class="mb-2 flex flex-col w-10/12 md:w-7/12">
+      <div class="mb-2 flex flex-col w-10/12 md:w-7/12 text-gray-800 dark:text-gray-100">
         <label class="text-md pb-1">City</label>
-        <input type="text" v-model="v$.order.city.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
+        <input autocomplete="off" type="text" v-model="v$.order.city.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
         <div class="text-sm text-red-500" v-for="(error, index) of v$.order.city.$errors" :key="index">
           <div class="error-msg">{{ error.$message }}</div>
         </div>
       </div>
 
-      <div class="mb-2 flex flex-col w-10/12 md:w-7/12">
+      <div class="mb-2 flex flex-col w-10/12 md:w-7/12 text-gray-800 dark:text-gray-100">
         <label class="text-md pb-1">Zip</label>
-        <input type="number" v-model="v$.order.zip.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
+        <input autocomplete="off" type="number" v-model="v$.order.zip.$model" class="text-gray-800 flex-grow px-2 border border-gray-400 rounded-md h-12 focus:outline-none">
         <div class="text-sm text-red-500" v-for="(error, index) of v$.order.zip.$errors" :key="index">
           <div class="error-msg">{{ error.$message }}</div>
         </div>

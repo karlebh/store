@@ -38,23 +38,17 @@
   import { mapState, mapMutations } from 'vuex'
 
   export default {
-    props: ['searchResults'],
-    data() {
-      return {
-        results: this.searchResults
-      }
-    },
     computed: {
-      ...mapState(['currentPage', 'perPage']),
+      ...mapState(['currentPage', 'perPage', 'searchResults']),
      
       pageCount() {
-        return Math.ceil(this.results.length / this.perPage)
+        return Math.ceil(this.searchResults.length / this.perPage)
       },
       pageNumbers() {
         if (this.pageCount < 4) {
           return [...Array(this.pageCount + 1).keys()].slice(1);
         } else if (this.currentPage <= 4) {
-          return [1, 2, 3, 4, 5];
+          return [1, 2, 3, 4];
         } else if (this.currentPage > this.pageCount - 4) {
           return [...Array(5).keys()].reverse()
           .map(v => this.pageCount - v);
