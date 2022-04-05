@@ -7,7 +7,7 @@
 
     <span v-if="currentPage > 4">
       <button @click="setPage(1)"
-      class="p-1 md:p-3 text-gray-500 rounded bg-gray-200 mx-2 shadow font-semibold">1</button>
+      class="p-1 md:p-3 text-gray-800 dark:text-gray-200 rounded bg-gray-200 mx-2 shadow font-semibold">1</button>
       <span class="h4">...</span>
     </span>
     <span class="mx-1">
@@ -16,7 +16,7 @@
       :class="{'orange text-gray-100': i == currentPage, 'text-gray-500': i != currentPage }"
       @click="setPage(i)">{{ i }}</button>
     </span>
-    <span v-if="currentPage <= pageCount - 4">
+    <span v-if="currentPage <= pageCount - 4" class="text-gray-800 dark:text-gray-200">
       <span class="h4">...</span>
       <button @click="setPage(pageCount)"
       class="p-1 md:p-3 text-gray-500 rounded bg-gray-200 mx-2 shadow font-semibold">{{ pageCount}}</button>
@@ -45,9 +45,9 @@
         if (this.pageCount < 4) {
           return [...Array(this.pageCount + 1).keys()].slice(1);
         } else if (this.currentPage <= 4) {
-          return [1, 2, 3, 4, 5];
+          return [1, 2, 3, 4];
         } else if (this.currentPage > this.pageCount - 4) {
-          return [...Array(5).keys()].reverse()
+          return [...Array(4).keys()].reverse()
           .map(v => this.pageCount - v);
         } else {
           return [this.currentPage -1, this.currentPage,
