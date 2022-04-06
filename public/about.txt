@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Fraunces
+- Font Author: Copyright 2020 The Fraunces Project Authors (github.com/undercasetype/Fraunces)
+- Font Source: http://fonts.gstatic.com/s/fraunces/v10/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIctxujDvTShUtWNg.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
