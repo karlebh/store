@@ -21,7 +21,7 @@ export default createStore({
     serverPageCount: 0,
     showSearch: false,
     cartOpen: false,
-    curtainMenuOpen: true,
+    curtainMenuOpen: false,
     searchBoxOpen: false,
     accountInfoOpen: false,
     loading: false,
