@@ -32,14 +32,14 @@
       }
 
       switch (localStorage.theme) {
-        // case 'system':
-        // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        //   document.documentElement.classList.add('dark');
-        // } else {
-        //   document.documentElement.classList.remove('dark');
-        // }
-        // document.documentElement.setAttribute('color-theme', 'system');
-        // break;
+        case 'system':
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        document.documentElement.setAttribute('color-theme', 'system');
+        break;
 
         case 'dark':
         document.documentElement.classList.add('dark');
@@ -57,7 +57,7 @@
   </script>
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body class="dark:bg-gray-800 dark:text-white">
+<body class="dark:bg-gray-900 dark:text-white">
   <noscript>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
