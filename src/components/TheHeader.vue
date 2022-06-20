@@ -1,7 +1,7 @@
 <template>
   <header v-show="! $route.path.startsWith('/thanks')" 
   id="navbar"
-  class="w-full max-w-6xl bg-white dark:bg-gray-800 shadow-lg lg:shadow-none relative z-40"
+  class="w-full max-w-6xl bg-white dark:bg-gray-900 shadow-lg lg:shadow-none relative z-40"
   >
   <div  class="flex justify-between items-baseline py-2 px-2" >
     <div class="flex items-baseline">
